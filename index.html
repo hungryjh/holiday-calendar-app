@@ -1,15 +1,116 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" id="html-root">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/holiday-calendar-app/calendar-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/calendar-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Public Holiday Calendar</title>
-    <meta name="description" content="Multi-country public holiday calendar with custom event management and URL sharing" />
-    <script type="module" crossorigin src="/holiday-calendar-app/assets/index-lg96Fwha.js"></script>
-    <link rel="stylesheet" crossorigin href="/holiday-calendar-app/assets/index-CZAX6I4Q.css">
+    
+    <!-- SEO Meta Tags - Will be updated by SEO Manager -->
+    <title>Holiday Calendar - Multi-Country Public Holidays & Custom Events</title>
+    <meta name="description" content="Free online holiday calendar with public holidays from 100+ countries. Plan business meetings, deadlines, and events with accurate international holiday data. Add custom holidays and share calendars." />
+    <meta name="keywords" content="holiday calendar, public holidays, international holidays, business calendar, meeting planner, global holidays, custom holidays, vacation planner" />
+    <meta name="author" content="Holiday Calendar" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://holidaycalendar.tools/" />
+    
+    <!-- Language Detection Script -->
+    <script>
+      // Detect browser language and set initial lang attribute
+      (function() {
+        const browserLang = navigator.language.split('-')[0];
+        const supportedLangs = ['en', 'es', 'fr', 'de', 'pt', 'it', 'nl', 'pl', 'ru', 'ja', 'ko', 'zh'];
+        const savedLang = localStorage.getItem('holiday_calendar_language');
+        
+        let initialLang = 'en';
+        if (savedLang && supportedLangs.includes(savedLang)) {
+          initialLang = savedLang;
+        } else if (supportedLangs.includes(browserLang)) {
+          initialLang = browserLang;
+        }
+        
+        document.documentElement.lang = initialLang;
+      })();
+    </script>
+    
+    <!-- Hreflang Links - Will be updated by SEO Manager -->
+    <link rel="alternate" hreflang="en" href="https://holidaycalendar.com/en" />
+    <link rel="alternate" hreflang="es" href="https://holidaycalendar.com/es" />
+    <link rel="alternate" hreflang="fr" href="https://holidaycalendar.com/fr" />
+    <link rel="alternate" hreflang="de" href="https://holidaycalendar.com/de" />
+    <link rel="alternate" hreflang="pt" href="https://holidaycalendar.com/pt" />
+    <link rel="alternate" hreflang="it" href="https://holidaycalendar.com/it" />
+    <link rel="alternate" hreflang="x-default" href="https://holidaycalendar.com/" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Holiday Calendar - Multi-Country Public Holidays & Custom Events" />
+    <meta property="og:description" content="Free online holiday calendar with public holidays from 100+ countries. Perfect for business planning and international teams." />
+    <meta property="og:site_name" content="Holiday Calendar" />
+    <meta property="og:url" content="https://holidaycalendar.com/" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Holiday Calendar - Multi-Country Public Holidays" />
+    <meta name="twitter:description" content="Free online calendar with public holidays from 100+ countries. Perfect for business planning." />
+    
+    <!-- Canonical URL (update with your domain) -->
+    <link rel="canonical" href="https://holidaycalendar.tools" />
+    
+    <!-- Structured Data for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Holiday Calendar",
+      "description": "Multi-country holiday calendar for business planning and personal use",
+      "url": "https://holidaycalendar.tools",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",ng up"
+- Use hashtags: #projectmanagement #businesstools #productivity
+
+### 📊 **3. Product Hunt Launch**
+
+#### **Preparation Checklist**
+- [ ] Create compelling GIFs showing key features
+- [ ] Write clear, benefit-focused description
+- [ ] Prepare maker comment highlighting business valuec holidays",
+        "Custom holiday management",
+        "Calendar sharing",
+        "Business planning tools"
+      ]
+    }
+    </script>
+    
+    <!-- Simple Analytics (Privacy-Focused) -->
+    <script>
+      // Simple page view tracking without cookies or personal data
+      (function() {
+        if (localStorage.getItem('analytics-disabled') === 'true') return;
+        
+        const data = {
+          url: window.location.pathname,
+          referrer: document.referrer || 'direct',
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent.substring(0, 100)
+        };
+        
+        // Store in localStorage for now (you can enhance this later)
+        const views = JSON.parse(localStorage.getItem('page-views') || '[]');
+        views.push(data);
+        if (views.length > 100) views.shift(); // Keep only last 100 views
+        localStorage.setItem('page-views', JSON.stringify(views));
+        
+        // Optional: Send to a simple webhook/endpoint later
+        console.log('Page view tracked:', data);
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CcFQjVNi.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CnulWnzh.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>
