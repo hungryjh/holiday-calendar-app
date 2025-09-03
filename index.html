@@ -79,30 +79,6 @@
       ]
     }
     </script>
-    
-    <!-- Simple Analytics (Privacy-Focused) -->
-    <script>
-      // Simple page view tracking without cookies or personal data
-      (function() {
-        if (localStorage.getItem('analytics-disabled') === 'true') return;
-        
-        const data = {
-          url: window.location.pathname,
-          referrer: document.referrer || 'direct',
-          timestamp: new Date().toISOString(),
-          userAgent: navigator.userAgent.substring(0, 100)
-        };
-        
-        // Store in localStorage for now (you can enhance this later)
-        const views = JSON.parse(localStorage.getItem('page-views') || '[]');
-        views.push(data);
-        if (views.length > 100) views.shift(); // Keep only last 100 views
-        localStorage.setItem('page-views', JSON.stringify(views));
-        
-        // Optional: Send to a simple webhook/endpoint later
-        console.log('Page view tracked:', data);
-      })();
-    </script>
     <script type="module" crossorigin src="/assets/index-CcFQjVNi.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CnulWnzh.css">
   </head>
