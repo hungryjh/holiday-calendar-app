@@ -72,8 +72,6 @@
         // Set lang attribute based on URL
         const currentLang = pathParts[0] && supportedLangs.includes(pathParts[0]) ? pathParts[0] : 'en';
         document.documentElement.lang = currentLang;
-        
-        document.documentElement.lang = initialLang;
       })();
     </script>
     
