@@ -11,23 +11,43 @@
     <meta name="keywords" content="holiday calendar, public holidays, international holidays, business calendar, meeting planner, global holidays, custom holidays, vacation planner" />
     <meta name="author" content="Holiday Calendar" />
     
-    <!-- Canonical URL -->
+    <!-- Canonical URL - Will be updated by Locale Router -->
     <link rel="canonical" href="https://holidaycalendar.tools/" />
     
-    <!-- Language Detection Script -->
+    <!-- Locale-based Redirect Script -->
     <script>
-      // Detect browser language and set initial lang attribute
+      // Handle locale-based routing
       (function() {
-        const browserLang = navigator.language.split('-')[0];
+        const path = window.location.pathname;
         const supportedLangs = ['en', 'es', 'fr', 'de', 'pt', 'it', 'nl', 'pl', 'ru', 'ja', 'ko', 'zh'];
-        const savedLang = localStorage.getItem('holiday_calendar_language');
+        const pathParts = path.split('/').filter(Boolean);
         
-        let initialLang = 'en';
-        if (savedLang && supportedLangs.includes(savedLang)) {
-          initialLang = savedLang;
-        } else if (supportedLangs.includes(browserLang)) {
-          initialLang = browserLang;
+        // If no locale in URL, redirect to appropriate locale
+        if (pathParts.length === 0 || !supportedLangs.includes(pathParts[0])) {
+          const browserLang = navigator.language.split('-')[0];
+          const savedLang = localStorage.getItem('holiday_calendar_language');
+          
+          let targetLang = 'en';
+          if (savedLang && supportedLangs.includes(savedLang)) {
+            targetLang = savedLang;
+          } else if (supportedLangs.includes(browserLang)) {
+            targetLang = browserLang;
+          }
+          
+          // Preserve any existing path and query params
+          const remainingPath = pathParts.length > 0 ? '/' + pathParts.join('/') : '';
+          const search = window.location.search;
+          const newPath = `/${targetLang}${remainingPath}${search}`;
+          
+          // Only redirect if we're not already on the correct path
+          if (window.location.pathname + window.location.search !== newPath) {
+            window.history.replaceState(null, '', newPath);
+          }
         }
+        
+        // Set lang attribute based on URL
+        const currentLang = pathParts[0] && supportedLangs.includes(pathParts[0]) ? pathParts[0] : 'en';
+        document.documentElement.lang = currentLang;
         
         document.documentElement.lang = initialLang;
       })();
@@ -79,7 +99,7 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-BfSG2Cyc.js"></script>
+    <script type="module" crossorigin src="/assets/index-B7Unh-am.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-BT68-nBp.css">
   </head>
   <body>
