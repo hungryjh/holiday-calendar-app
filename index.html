@@ -14,12 +14,36 @@
     <!-- Canonical URL - Will be updated by Locale Router -->
     <link rel="canonical" href="https://holidaycalendar.tools/" />
     
-    <!-- Locale-based Redirect Script -->
+    <!-- GitHub Pages SPA Routing Script -->
     <script>
-      // Handle locale-based routing
+      // Handle GitHub Pages SPA routing and locale-based navigation
       (function() {
-        const path = window.location.pathname;
         const supportedLangs = ['en', 'es', 'fr', 'de', 'pt', 'it', 'nl', 'pl', 'ru', 'ja', 'ko', 'zh'];
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectedPath = urlParams.get('p');
+        
+        // Check if this is a redirect from 404.html
+        if (redirectedPath) {
+          // Remove the redirect parameter and update the URL
+          urlParams.delete('p');
+          const cleanSearch = urlParams.toString();
+          const finalUrl = redirectedPath + (cleanSearch ? '?' + cleanSearch : '') + window.location.hash;
+          
+          // Replace the URL without the redirect parameter
+          window.history.replaceState(null, '', finalUrl);
+          
+          // Extract locale from redirected path
+          const pathParts = redirectedPath.split('/').filter(Boolean);
+          const locale = pathParts[0];
+          
+          if (supportedLangs.includes(locale)) {
+            document.documentElement.lang = locale;
+            return; // Early return, don't run normal locale detection
+          }
+        }
+        
+        // Normal locale-based routing (when not redirected from 404)
+        const path = window.location.pathname;
         const pathParts = path.split('/').filter(Boolean);
         
         // If no locale in URL, redirect to appropriate locale
@@ -73,9 +97,6 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Holiday Calendar - Multi-Country Public Holidays" />
     <meta name="twitter:description" content="Free online calendar with public holidays from 100+ countries. Perfect for business planning." />
-    
-    <!-- Canonical URL (update with your domain) -->
-    <link rel="canonical" href="https://holidaycalendar.tools" />
     
     <!-- Structured Data for Search Engines -->
     <script type="application/ld+json">
